@@ -1,0 +1,3 @@
+#include "version.h"
+
+BYTE fwVerInUse[FW_VER_SIZE] = VERSION;

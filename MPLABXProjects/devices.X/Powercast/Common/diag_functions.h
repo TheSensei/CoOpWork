@@ -1,0 +1,126 @@
+/*********************************************************************
+ * diag_functions.h
+ * Written by Mark Brasili
+ * Copyright 2015
+ * Confidential and Proprietary to Powercast Corporation
+ ********************************************************************/
+
+#ifndef DIAG_FUNCTIONS_H
+#define	DIAG_FUNCTIONS_H
+
+//#define THIS_FILE_CONTAINS_DEFINES_ONLY 1
+
+// comment out next line in production code - only use next line for in-house testing
+//#define USE_DIAG_TEST_CODE_AT_INIT_TIME 1
+
+#ifndef THIS_FILE_CONTAINS_DEFINES_ONLY
+#include "GenericTypeDefs.h"
+#endif
+
+#define DIAG_FORMAT_VER  1
+
+#define REQ_DIAG_OP         222
+#define RESP_DIAG_OP        223
+
+#define SIZE_REQ_DIAG_NO_GW_BITMAP     11
+
+#define REQ_DIAG_FLAGS_GW_BITMAP_PRESENT_BIT 0x80
+#define REQ_DIAG_FLAGS_RESERVED_BITS 0x70
+#define REQ_DIAG_FLAGS_GW_CLEAR_REQ_BITS 0x0C
+#define REQ_DIAG_FLAGS_GW_RESP_REQ_BITS 0x03
+
+#define DIAG_GW_CLEAR_REQ_NONE 0x00
+#define DIAG_GW_CLEAR_REQ_LAST_REPORTED 0x04
+#define DIAG_GW_CLEAR_REQ_TO_BE_REPORTED 0x08
+#define DIAG_GW_CLEAR_REQ_ALL 0x0C
+
+#define DIAG_GW_RESP_REQ_NONE 0x00
+#define DIAG_GW_RESP_REQ_BITMAP 0x01
+#define DIAG_GW_RESP_REQ_COUNTS 0x02
+#define DIAG_GW_RESP_REQ_BITMAP_AND_COUNTS 0x03
+
+
+typedef enum _DIAG_V1
+{
+    // OTHER STATISTICS
+    RX_COUNT = 0,
+    TX_COUNT,
+    ERR_RX_PCK_COUNT_NEAR_TX,  // this may increment when radio receives it's own transmission
+    RX_GW_ID_MISMATCH,
+    RX_ONLY_SRC_MISMATCH,
+    RX_FROM_DEVICE_NOT_ASSOCIATED,
+    RX_ROOM_SPOOF_IGNORE_FOR_GWID,
+    RX_NO_REPEAT_HOP_COUNT_ZERO,
+    RX_RECENT_PKT_NO_REPEAT,
+
+    // GW REQUEST STATISTICS
+    FW_DATA_DUPLICATES,
+
+    // GW GENERAL REQUEST ERRORS
+    ERR_RX_PCK_COUNT_INVALID,
+    ERR_REQ_SIZE_TOO_SMALL,
+    ERR_REQ_SIZE_INVALID,
+
+    // OTHER APP ERRORS
+    ERR_RX_DROP_OLD_RX_BUF_FOR_REPEAT,
+
+    // RADIO (TRX) DRIVER ERRORS
+    ERR_TRX_BUFFER_OVERRUN,
+    ERR_TRX_MISSED_IRQ,
+    ERR_TRX_FAILED_CAL,
+    ERR_TRX_FAILED_STATE_CHANGE,
+    ERR_TRX_FAILED_TX,
+    ERR_TRX_TX_TIMEOUT,
+    ERR_TRX_RX_CRC,
+    ERR_TRX_DROP_NEW_RX_BUF,
+    ERR_TRX_DROP_OLDEST_RX_BUF,
+    ERR_TRX_RX_FRAME_TOO_LARGE,
+    ERR_TRX_UNKNOWN,
+
+    // FW UPGRADE REQUEST ERRORS
+    ERR_FW_MISSING_NOT_IN_FW_UPGRADE,
+    ERR_FW_MISSING_PAGE_ID_BITS_7AND6,
+    ERR_FW_MISSING_PAGE_ID_LESS,
+    ERR_FW_MISSING_PAGE_ID_GREATER,
+    ERR_FW_UPGRADE_ALREADY_IN_UPGRADE,
+    ERR_FW_HDR_NOT_IN_FW_UPGRADE,
+    ERR_FW_HDR_SAME_PAGE_ID,
+    ERR_FW_HDR_WHEN_MISSING_BLKS,
+    ERR_FW_HDR_RX_PAGE_ID_TOO_BIG_FOR_HW,
+    ERR_FW_DATA_PAGE_ID_BIT6_ZERO,
+    ERR_FW_DATA_BLOCK_ID_BITS_7TO4,
+    ERR_FW_DATA_NOT_IN_FW_UPGRADE,
+    ERR_FW_DATA_PAGE_ID_MISMATCH,
+    ERR_FW_DATA_OUT_OF_ORDER,
+    ERR_FW_APPLY_NOT_IN_FW_UPGRADE,
+    ERR_FW_APPLY_VER_MISMATCH,
+    ERR_FW_APPLY_FILE_NOT_ALL_RXED,
+    ERR_PAGE_MD5_SUM_MISMATCH,
+    ERR_FILE_MD5_SUM_MISMATCH,
+    ERR_FW_FILE_RXING_TOO_BIG,
+    ERR_DROP_OLDEST_TX_BUFFER,
+    ERR_DIAG_FLAGS,
+    ERR_DIAG_GW_BITMAP_ZERO,
+
+    // total count
+    TOTAL_DIAGNOSTIC_COUNTS
+}DIAG_V1;
+
+#define BYTES_IN_DIAG_BIT_MAP ((TOTAL_DIAGNOSTIC_COUNTS + 7)/8)
+#define SIZE_REQ_DIAG_WITH_GW_BITMAP   (SIZE_REQ_DIAG_NO_GW_BITMAP + BYTES_IN_DIAG_BIT_MAP)
+
+#ifndef THIS_FILE_CONTAINS_DEFINES_ONLY
+typedef DIAG_V1 DIAG;
+
+// function prototypes
+void countRadioErr(int radioErrType);
+WORD countError(DIAG err);
+BYTE respDiag_length( BYTE *respDiag );
+void reqDiag_handler(void);
+
+#if USE_DIAG_TEST_CODE_AT_INIT_TIME
+void test_code_load_counts_with_err_number(void);
+#endif
+#endif
+
+#endif	/* DIAG_FUNCTIONS_H */

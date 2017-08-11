@@ -1,0 +1,95 @@
+$ cat .gitignore
+*.o
+*.d
+*.hex
+*.cof
+*.elf
+*.zip
+*.map
+*.properties
+*.mk
+*.bash
+*.sym
+*.sdb
+*.rlf
+memoryfile.xml
+/Powercast/OccupancySensor-Ultrasonic/UltrasonicSensor.X/dist/
+/Powercast/OccupancySensor-Ultrasonic/UltrasonicSensor.X/nbproject/private/
+/Powercast/SmartSwitch/SmartSwitch.X/dist/
+/Powercast/SmartSwitch/SmartSwitch.X/nbproject/private/
+/Powercast/Occupancy Sensor/Occupancy Sensor.X/dist/
+/Powercast/Occupancy Sensor/Occupancy Sensor.X/nbproject/private/
+/Powercast/SmartSwitch/SmartSwitch.X/build/Production/
+/Powercast/Certification/nbproject/private/
+/Powercast/Certification/dist/BatteryDevice/
+/Powercast/Certification/build/BatteryDevice/
+/Powercast/Certification/build/Connector/
+/Powercast/Certification/dist/Connector/
+/Powercast/Light Sensor/Light Sensor.X/dist/Production-NA/
+/Powercast/Light Sensor/Light Sensor.X/build/Production-NA/
+/Powercast/Light Sensor/Light Sensor.X/dist/Production-UK/
+/Powercast/Light Sensor/Light Sensor.X/build/Production-UK/
+/Powercast/Smart Connector/Smart Connector.X/build/Production-NA/
+/Powercast/Smart Connector/Smart Connector.X/dist/Production-NA/
+/Powercast/Smart Connector/Smart Connector.X/build/Production-UK/
+/Powercast/Smart Connector/Smart Connector.X/dist/Production-UK/
+/Powercast/Certification/build/Connector-NA/
+/Powercast/Certification/dist/Connector-NA/
+/Powercast/Certification/build/BatteryDevice-NA/
+/Powercast/Certification/dist/BatteryDevice-NA/
+/Powercast/Certification/dist/BatteryDevice-UK/
+/Powercast/Certification/build/BatteryDevice-UK/
+/Powercast/Certification/dist/Connector-UK/
+/Powercast/Certification/build/Connector-UK/
+/Powercast/SmartSwitch/SmartSwitch.X/build/RegularWall-NA/
+/Powercast/SmartSwitch/SmartSwitch.X/build/RegularWall-UK/
+/Powercast/SmartSwitch/SmartSwitch.X/build/RegularFlush-NA/
+/Powercast/SmartSwitch/SmartSwitch.X/build/RegularFlush-UK/
+/Powercast/SmartSwitch/SmartSwitch.X/build/SceneFlush-NA/
+/Powercast/SmartSwitch/SmartSwitch.X/build/SceneFlush-UK/
+/Powercast/SmartSwitch/SmartSwitch.X/build/SceneWall-NA/
+/Powercast/SmartSwitch/SmartSwitch.X/build/SceneWall-UK/
+/Powercast/SmartSwitch/SmartSwitch.X/build/OnOffFlush-NA/
+/Powercast/SmartSwitch/SmartSwitch.X/build/OnOffFlush-UK/
+/Powercast/Occupancy Sensor/Occupancy Sensor.X/build/Production-NA/
+/Powercast/Occupancy Sensor/Occupancy Sensor.X/build/Production-UK/
+/Powercast/OccupancySensor-Ultrasonic/UltrasonicSensor.X/build/Production/
+/Powercast/OccupancySensor-Ultrasonic/UltrasonicSensor.X/build/Production-UK/
+/Powercast/OccupancySensor-Ultrasonic/UltrasonicSensor.X/build/Production-NA/
+/Powercast/Partition Sensor/Partition Sensor.X/build/Production-NA/
+/Powercast/Partition Sensor/Partition Sensor.X/dist/Production-NA/
+/Powercast/Partition Sensor/Partition Sensor.X/build/Production-UK/
+/Powercast/Partition Sensor/Partition Sensor.X/dist/Production-UK/
+/Powercast/OccupancySensor-LowTemp/OccupancySensor-LowTemp.X/nbproject/private/
+/Powercast/OccupancySensor-LowTemp/OccupancySensor-LowTemp.X/build/Production-NA/
+/Powercast/OccupancySensor-LowTemp/OccupancySensor-LowTemp.X/dist/Production-UK/
+/Powercast/OccupancySensor-LowTemp/OccupancySensor-LowTemp.X/build/Production-UK/
+/Powercast/Light Sensor/LightSensor.X/nbproject/private/
+/Powercast/Partition Sensor/PartitionSensor.X/nbproject/private/
+/Powercast/Occupancy Sensor/OccupancySensor.X/nbproject/private/
+/Powercast/OccupancySensor/OccupancySensor.X/nbproject/private/
+/Powercast/Smart Connector/SmartConnector.X/nbproject/private/
+/Powercast/SmartConnector/SmartConnector.X/nbproject/private/
+/Powercast/LightSensor/LightSensor.X/dist/Production-NA/
+/Powercast/LightSensor/LightSensor.X/build/Production-NA/
+/Powercast/LightSensor/LightSensor.X/dist/Production-UK/
+/Powercast/LightSensor/LightSensor.X/build/Production-UK/
+/Powercast/LightSensor/LightSensor.X/build/Production/
+/Powercast/SmartConnector/SmartConnector.X/dist/default/
+/Powercast/SmartConnector/SmartConnector.X/build/Production-NA/
+/Powercast/SmartConnector/SmartConnector.X/dist/Production-NA/
+/Powercast/SmartConnector/SmartConnector.X/dist/Production-UK/
+/Powercast/SmartConnector/SmartConnector.X/build/Production-UK/
+/Powercast/SmartSwitch/SmartSwitch.X/build/default/
+/Powercast/PartitionSensor/PartitionSensor.X/dist/Production-NA/
+/Powercast/PartitionSensor/PartitionSensor.X/build/Production-NA/
+/Powercast/PartitionSensor/PartitionSensor.X/dist/default/
+/Powercast/PartitionSensor/PartitionSensor.X/build/Production-UK/
+/Powercast/PartitionSensor/PartitionSensor.X/dist/Production-UK/
+/Powercast/OccupancySensor/OccupancySensor.X/build/Production-NA/
+/Powercast/OccupancySensor/OccupancySensor.X/dist/default/
+/Powercast/OccupancySensor/OccupancySensor.X/dist/Production-NA/
+/Powercast/OccupancySensor/OccupancySensor.X/dist/Production-UK/
+/Powercast/OccupancySensor/OccupancySensor.X/build/Production-UK/
+/Powercast/OccupancySensor-LowTemp/OccupancySensor-LowTemp.X/dist/default/
+/Powercast/OccupancySensor-LowTemp/OccupancySensor-LowTemp.X/dist/Production-NA/
